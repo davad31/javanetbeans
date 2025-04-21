@@ -25,16 +25,22 @@ defalt           X                            X
 private          X
 
 variable locales = parametros.
+Public permite el uso de la variable dentro de la misma clase siempre y cuando se declare a clase obviamente. Tambien podemos acceder a el en otro paquete y otra clase distinta.
+Private solo se permite usar siempre y cuando dentro de la clase mas no de otro paquete o clase externa.
 
+
+NOTA PARA USAR UN PAQUETE DE UNA CLASE A OTRA CLASE SE DEBE DE IMPORTAR.
 
 /*
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 package entidades;
 public class Producto {
     //atributos
     
     public String nombre;
-     int cantidadDisponible;
+     int cantidadDisponible; // por defecto.
     private float precio;
      
     //constructores
@@ -65,6 +71,35 @@ public class Producto {
 }
 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+package encapsulamiento;
+import entidades.Producto;
 
+public class Encapsulamiento {
+    public static void main(String[] args) {
+        Producto produ2 = new Producto();
+        produ2.nombre = "chanchito feliz";
+        //* produ.2cantidadDisponible = 24; no se puede acceder porque es por defecto
+        //y estamos en otro paquete//
+        // produ2.precio = 2,54f; // no se puede acceder porque esto es de otro paquete ademas esto esta en provado 
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package entidades;
+
+public class VentaMain {
+    
+    public static void main(String[] args) {
+        //crear un objeto
+        Producto produ = new Producto ();
+        produ.nombre = "Pepito el mas capito";
+        produ.cantidadDisponible = 30;     
+        //produ.precio = 1,54f; // no se puede acceder ´prqie es private
+        // solo se puede acceder dentro de la misma clase
+
+    }
+}
 
