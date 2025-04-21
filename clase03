@@ -7,10 +7,64 @@ Acceder o modificar los atributos de una clase a travez de sus metodos.
 provee dos principales beneficios a los desarrolladores de software:
 
 modularidad: Indica que debewmos dividiar al programa en elementos bien identificables.
-Ocultamiento: es decir un objeto tiene una "interfas publica" que otros objetoos pueden utilizar para comunicarse con el.
-
+Creando clases y organizandolas.
+Ocultamiento: es decir un objeto tiene una "interfas publica"(modificadores de acceso) que otros objetoos pueden utilizar para comunicarse con el.
 Esto permite la proteccion de los atributos de un acesso arbitarario por parte de otros programas y metodos.
 
 TU CONTROLAS COMO EL ACCESO A ESOS ATRIBUTOS SE DÁ.
 
+Public = publico +
+protegido = protected #
+definido = nada 
+privada = private -
+
+            la misma clase    otra clase del mismo paqete     Subclase      Otra clase de otro paquete
+public           X                            X                  X                     X
+protected        X                            X                  X
+defalt           X                            X
+private          X
+
+variable locales = parametros.
+
+
 /*
+
+package entidades;
+public class Producto {
+    //atributos
+    
+    public String nombre;
+     int cantidadDisponible;
+    private float precio;
+     
+    //constructores
+    // 1. constructor por defecto 
+   public Producto(){
+       this.cantidadDisponible = 5;       
+   }
+    //2. constructor parametrizado
+    public Producto(String nom, int cantidadDisponible){
+         this.nombre = nom;
+         this.cantidadDisponible= cantidadDisponible;
+    }
+       
+    public Producto( int cantidadDisponible, String nom, float precio){
+         this.nombre = nom;
+         this.cantidadDisponible= cantidadDisponible;
+         this.precio = precio;
+    }
+       
+       //metodos 
+    public void mostrarDatos(){
+        System.out.println("Datos de producto");
+        System.out.println("Nombre "+ this.nombre);
+        System.out.println("Cantidad Disponible " + this.cantidadDisponible);
+        System.out.println("Precio : "+ this.precio);
+    }
+       
+}
+
+
+
+
+
