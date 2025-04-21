@@ -1,0 +1,16 @@
+//*ENCAPSULAMIENTO:
+  Es el segundo pilar fundamental de POO(el primero es la abstraccion).
+  por el sentdo de proteger.
+ Es la propieda dque permte asegurar la informacion de un objeto esta oculta del mundo exterior.
+Acceder o modificar los atributos de una clase a travez de sus metodos.
+
+provee dos principales beneficios a los desarrolladores de software:
+
+modularidad: Indica que debewmos dividiar al programa en elementos bien identificables.
+Ocultamiento: es decir un objeto tiene una "interfas publica" que otros objetoos pueden utilizar para comunicarse con el.
+
+Esto permite la proteccion de los atributos de un acesso arbitarario por parte de otros programas y metodos.
+
+TU CONTROLAS COMO EL ACCESO A ESOS ATRIBUTOS SE DÁ.
+
+/*
