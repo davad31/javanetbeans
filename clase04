@@ -169,6 +169,8 @@ public void ingresarDatos(){
             
             
         }while(cantidadValida==false); 
+         this.setcantidadDisponible(cantidadIngresado);
+
         System.out.println("Precio");
         this.precio = sc.nextFloat(); // para leer float
     }
