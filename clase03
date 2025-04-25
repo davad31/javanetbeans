@@ -34,6 +34,7 @@ NOTA PARA USAR UN PAQUETE DE UNA CLASE A OTRA CLASE SE DEBE DE IMPORTAR.
 /*
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+el set aplica y el get (obtiene el  valor del atributo) lo del set(que seria cambiar el valor).
 
 package entidades;
 public class Producto {
