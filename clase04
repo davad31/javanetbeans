@@ -110,4 +110,15 @@ public void ingresarDatos(){
     }
 
 
+      public void SiingresarDatos() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("------------------------- Ingreso de producto------------------");
+        System.out.println("nombre");
+        this.nombre = sc.nextLine(); // para leer string
+        System.out.println("Cantidad disponible");
+        this.cantidadDisponible = sc.nextInt(); // para leer int
+        System.out.println("Precio");
+        this.precio = sc.nextFloat(); // para leer float
+    }
+
 */
