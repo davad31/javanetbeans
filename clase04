@@ -174,7 +174,33 @@ public void ingresarDatos(){
         System.out.println("Precio");
         this.precio = sc.nextFloat(); // para leer float
     }
+}
+para verificar un numero delei se necesita el numero al igual que al verificar un nombre o producto.
 
+//sobrecarga
+calclulos para ejemsiplificar
+public double calcularPrecioFinal(){
+    if(this.precio >100){
+      return this.precio - 5;
+}else{
+return this.precio;
+}
+}
+public double calcularPrecioFinal(double porcentajededescuento)}{
+return this.precio - (this.precio *porcentajededescuento);
+}
+
+public double  calcularPrecioFinal(double porc_descuento, double impuesto){
+double precioCondescto = this.precio(this.precio *porc_descuento);
+double valorImpuesto = this.precio * impuesto;
+return precioConDescuento + valorImpuesto;
+}
 */
 
-para verificar un numero delei se necesita el numero al igual que al verificar un nombre o producto.
+
+
+
+
+
+
+
