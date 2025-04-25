@@ -194,6 +194,8 @@ public double  calcularPrecioFinal(double porc_descuento, double impuesto){
 double precioCondescto = this.precio(this.precio *porc_descuento);
 double valorImpuesto = this.precio * impuesto;
 return precioConDescuento + valorImpuesto;
+
+LA SOBRECARGA NO ES MAS QUE UN METODO REPETIDO VARIAS VECES SIEMRPE Y CUANDO  TENGA UN NUMERO MAYOR DE PARAMETRO CADA VEZ QUE QUIERAS USAR EL MISMO METODO.
 }
 */
 
