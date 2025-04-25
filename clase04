@@ -118,7 +118,7 @@ public void ingresarDatos(){
         boolean nombreValido = true;
         do {
             System.out.println("nombre");
-            nombreingresado = sc.nextLine();
+            nombreingresado = sc.nextLine();// para leer string
             nombreValido = true;
             
             if (nombreingresado.length() < 5 ||  this.getNombre().length() >=30) {
@@ -142,9 +142,33 @@ public void ingresarDatos(){
               
         } while (!nombreValido);
         this.setNombre(nombreingresado);
- // para leer string
-        System.out.println("Cantidad disponible");
-        this.cantidadDisponible = sc.nextInt(); // para leer int
+ 
+         // System.out.println("Cantidad disponible");
+        //this.cantidadDisponible = sc.nextInt(); // para leer int
+        
+        int cantidadIngresado = 0;
+        boolean cantidadValida = true;
+        
+        do{
+            System.out.println("cantidad disponible");
+            cantidadValida = true;
+            if(sc.hasNextInt()){ // pregunto si el usuario esta ingresando un numero
+                cantidadIngresado = sc.nextInt(); // para leer int
+                //verificar
+                
+                
+            }else{
+                System.out.println("Dato invalido, debe ser numero");
+                cantidadValida = false;
+                sc.next(); // limpiar la entrada de datos
+            }
+            if(cantidadIngresado<= 0  || cantidadIngresado >1000){
+                System.out.println("entre 1 y 1000");
+                cantidadValida = false;
+            }
+            
+            
+        }while(cantidadValida==false); 
         System.out.println("Precio");
         this.precio = sc.nextFloat(); // para leer float
     }
