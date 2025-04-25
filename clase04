@@ -120,9 +120,17 @@ public void ingresarDatos(){
             nombreingresado = sc.nextLine();
             if (nombreingresado.length() < 5 ||  this.getNombre().length() >=30) {
 
-                System.out.print("Nombre del producto minimo 5 caracteres");
+                System.out.print("Nombre del producto entre 5 y maximo 30");
                 nombreValido = false;
             }
+          // revisar caracter por caracter.
+          for (imt i =0; i<nombreIngresado.length(); i++){
+            char c = nombreIngresado.charAt(i); // para evaluar cada caracter.
+            if (!caracter.letterOrDigit(c) && c != ' '){
+            nombreValido = false;
+            break; // salir del for.
+            }
+          }
         } while (!nombreValido);
  // para leer string
         System.out.println("Cantidad disponible");
