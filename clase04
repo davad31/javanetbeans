@@ -1,0 +1,28 @@
+*//package uno;
+
+//public class Persona {
+  //  private String nombre;
+    //int edad;
+    //public String cedula;
+    
+    // void mostrarDatos(){
+        
+    //    System.err.println("Datos");
+   // }
+    ____________________________________________________________________________________________________________________________
+// }
+public class  Registro(){
+    
+    public static void Main (String args[]){
+        
+        persona p= new Persona ("Juan");
+        p.nombre = "Jose";
+        p.edad = 29;
+        p.cedula= !"!092478910";
+        p.mostrarDatos();
+    }
+}
+*/
+
+
+Ojo con los modificadores Por el publico y por el defecto.
