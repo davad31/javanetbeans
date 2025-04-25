@@ -1,27 +1,32 @@
-*//package uno;
+//* package uno;
 
-//public class Persona {
-  //  private String nombre;
-    //int edad;
-    //public String cedula;
-    
-    // void mostrarDatos(){
+public class Persona {
+  private String nombre;
+  int edad;
+  public String cedula;
+
+    //falta constructor.
+
+   void mostrarDatos(){
         
-    //    System.err.println("Datos");
-   // }
-    ____________________________________________________________________________________________________________________________
-// }
+        System.err.println("Datos");
+    }
+  }
+____________________________________________________________________________________________________________________________}
 public class  Registro(){
     
     public static void Main (String args[]){
         
-        persona p= new Persona ("Juan");
-        p.nombre = "Jose";
-        p.edad = 29;
-        p.cedula= !"!092478910";
-        p.mostrarDatos();
+        persona p= new Persona ("Juan"); // esto no funciona debido a que no hay un constructor.
+        p.nombre = "Jose"; // esta privado en  la clase por eso no se puedde acceder.
+        p.edad = 29; // 
+        p.cedula= !"!092478910"; // si se puede usar debido a que esta en el mismo paquete.
+        p.mostrarDatos(); // si se puede usar porque esta en el mismo paquete( por default).
+
     }
 }
+
+
 */
 
 
