@@ -80,7 +80,9 @@ import entidades.Producto;
 public class Encapsulamiento {
     public static void main(String[] args) {
         Producto produ2 = new Producto();
-        produ2.nombre = "chanchito feliz";
+        produ2.nombre = "chanchito feliz"; // esto obviamente ya no va afuncionar porque esta en privado tonces se usa el sett
+        produ2.setNombre("chanchito feliz");
+
         //* produ.2cantidadDisponible = 24; no se puede acceder porque es por defecto
         //y estamos en otro paquete//
         // produ2.precio = 2,54f; // no se puede acceder porque esto es de otro paquete ademas esto esta en provado 
