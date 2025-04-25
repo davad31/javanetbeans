@@ -113,8 +113,18 @@ public void ingresarDatos(){
       public void SiingresarDatos() {
         Scanner sc = new Scanner(System.in);
         System.out.println("------------------------- Ingreso de producto------------------");
-        System.out.println("nombre");
-        this.nombre = sc.nextLine(); // para leer string
+        String nombreingresado = "";
+        boolean nombreValido = true;
+        do {
+            System.out.println("nombre");
+            nombreingresado = sc.nextLine();
+            if (nombreingresado.length() < 5 ||  this.getNombre().length() >=30) {
+
+                System.out.print("Nombre del producto minimo 5 caracteres");
+                nombreValido = false;
+            }
+        } while (!nombreValido);
+ // para leer string
         System.out.println("Cantidad disponible");
         this.cantidadDisponible = sc.nextInt(); // para leer int
         System.out.println("Precio");
