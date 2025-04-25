@@ -27,7 +27,6 @@ public class  Registro(){
 }
 
 
-*/
 
 
 Ojo con los modificadores Por el publico y por el defecto.
@@ -61,3 +60,39 @@ public class registro {
         p.mostrarDatos();
     }
 }
+
+________________________________________________________________________________________________________________________________________
+
+acontinuacion de la clase 04
+   //getter y setter = son un punto de acceso para los modificadores privados, en donde el get coge la informacion que el set espera.( el get prohibe su cambio y el sett permite el acceso de informacion nueva para el atributo que estece privado).
+    
+    public String getNombre(){
+        return this.nombre;
+    }
+    
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+    
+    public int getcantidadDisponible(){
+        return this.cantidadDisponible;
+    }
+    
+    public void setcantidadDisponible( int nuevaCantidad){
+       this.cantidadDisponible = nuevaCantidad; 
+    }
+    
+    public float precio(){
+        return this.precio;
+    }
+        
+    public void precio(float precio){
+        this.precio = precio;
+    }
+
+En la clase 04 para que no nos salga error en las lineas de codigo es usando el set
+ejemplo:
+produc.setnombre("ingresenombre");
+
+
+*/
