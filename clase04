@@ -31,3 +31,33 @@ public class  Registro(){
 
 
 Ojo con los modificadores Por el publico y por el defecto.
+
+el codigo corregido seria el siguiente.
+
+public class Persona {
+    public String nombre;
+    int edad;
+    public String cedula;
+    
+     public void Persona(){
+         this.nombre = nombre;
+         this.cedula = cedula;
+     }
+    void mostrarDatos(){
+        
+        System.err.println("Datos");
+    }  
+}
+_____________________________________________________________________________________________________________________________
+
+
+public class registro {
+     public static void Main (String args[]){
+        
+        Persona p = new Persona ();
+        p.nombre = "Jose";
+        p.edad = 29;
+        p.cedula = "!092478910";
+        p.mostrarDatos();
+    }
+}
