@@ -113,25 +113,35 @@ public void ingresarDatos(){
       public void SiingresarDatos() {
         Scanner sc = new Scanner(System.in);
         System.out.println("------------------------- Ingreso de producto------------------");
-        String nombreingresado = "";
+       
+         String nombreingresado = "";
         boolean nombreValido = true;
         do {
             System.out.println("nombre");
             nombreingresado = sc.nextLine();
+            nombreValido = true;
+            
             if (nombreingresado.length() < 5 ||  this.getNombre().length() >=30) {
 
                 System.out.print("Nombre del producto entre 5 y maximo 30");
                 nombreValido = false;
             }
           // revisar caracter por caracter.
-          for (imt i =0; i<nombreIngresado.length(); i++){
-            char c = nombreIngresado.charAt(i); // para evaluar cada caracter.
-            if (!caracter.letterOrDigit(c) && c != ' '){
+          for (int i =0; i<nombreingresado.length(); i++){
+            char c = nombreingresado.charAt(i); // para evaluar cada caracter.
+            if (!Character.isLetterOrDigit(c) && c != ' '){
             nombreValido = false;
             break; // salir del for.
             }
           }
+          //revisar con expresion regular
+          if(!nombreingresado.matches("^[ a-zA-z0-9]+$")){
+              System.out.println("solo letras, numeros y espacios");
+              nombreValido = false;
+          }
+              
         } while (!nombreValido);
+        this.setNombre(nombreingresado);
  // para leer string
         System.out.println("Cantidad disponible");
         this.cantidadDisponible = sc.nextInt(); // para leer int
