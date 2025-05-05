@@ -97,5 +97,48 @@ public class Empleado {
      
 }
 
+para usar la clase padre dentro de una clase hija se tiene que usar la palabra extends junto a la clase
+ejemplo:
+public class EmpleadoTemporal extends Empleado {
+
+
+
+package entidades;
+public class EmpleadoTemporal extends Empleado {
+   //atributos propios
+    // aHORA TIENE 5 atributos
+    private  int diasTrabajados;
+    private float salarioPorDia;
+    
+    // constructores
+    public EmpleadoTemporal(){
+        
+    }
+    public EmpleadoTemporal(String nom){
+        this.nombre = nom;
+    }
+    public EmpleadoTemporal(int id, String nom, float sal, int diasTrab, float salDia){
+        super(nom , id, salDia);
+        
+        this.diasTrabajados = diasTrab;
+        this.salarioPorDia = salDia;
+          
+    }
+            
+    
+}
+package entidades;
+public class EmpleadoTemporal extends Empleado {
+   //atributos propios
+    // aHORA TIENE 5 atributos
+    private  int diasTrabajados;
+    private float salarioPorDia;
+    
+    // constructores
+    
+    
+    
+}
+
 */
 
