@@ -1,4 +1,100 @@
 //*  5 /05/2025
 
-/*
+Clase de herencia
+cuando una clase hija decide modificar un metodo heredado a eso se le denomina sobre escritura de metodos (esto se debe cumplir siempre y cuando la clase hija tenga los mismo nombres con los mismo parametros de la clase padre)
+ademas la clase hija puede tenar sus propios atributos y sus propios metodos.
+protected tiene un nivel de accesibilidad mayor ( en las clases hijas sin importar el paquete).
+
+public class Clase05 {
+
+  
+    public static void main(String[] args) {
+        Empleado m = new Empleado("juan", 111, 1200);
+        String res = m.toString();
+        System.out.println("REs de toString " + res);
+    }
+    
+}
+
+(clase main)
+
+
+
+clase Empleado 
+import java.util.Scanner;
+
+public class Empleado {
+    //atributos
+    protected String nombre;
+    protected int idEmpleado;
+    protected float salario;
+    
+   //constructores
+    public Empleado() {
+    }
+
+    public Empleado(String nombre, int idEmpleado, float salario) {
+        this.nombre = nombre;
+        this.idEmpleado = idEmpleado;
+        this.salario = salario;
+        
+    }
+    //metodos getters y setters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    public float getSalario() {
+        return salario;
+    }
+
+    public void setSalario(float salario) {
+        this.salario = salario;
+    }
+    //metodos
+    public void ingresarDatos() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese ID del empleado: ");
+        idEmpleado = scanner.nextInt();
+        scanner.nextLine(); //limpiar buffer de entrada de datos
+        System.out.print("Ingrese nombre: ");
+        nombre = scanner.nextLine();
+    }
+
+    public void mostrarDatos() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("ID: " + idEmpleado);
+        System.out.println("Salario: $" + this.salario);
+    }
+
+    public double calcularSalario() {
+        return this.salario;
+    }
+
+    public double calcularSalario(float bono) {
+        this.salario = this.salario + bono;
+        return this.salario;
+    }
+
+    public double calcularSalario(float multa, float bono) {
+        this.salario = this.salario + bono - multa;
+        return this.salario;
+    }
+
+    
+}
+
+*/
 
