@@ -4,6 +4,22 @@ Clase de herencia
 cuando una clase hija decide modificar un metodo heredado a eso se le denomina sobre escritura de metodos (esto se debe cumplir siempre y cuando la clase hija tenga los mismo nombres con los mismo parametros de la clase padre)
 ademas la clase hija puede tenar sus propios atributos y sus propios metodos.
 protected tiene un nivel de accesibilidad mayor ( en las clases hijas sin importar el paquete).
+La herencia simple significa que en la clase padre solo puede tener una clase padre.
+La herencia multiple es cuando la clase hija tiene mas de una clase padre. 
+
+para demostrar herencia en un diagrama de clase UMl es con una flecha cesde la clase hija hasta la clase padre con un triangulo sin pintar.
+la herencia es un  una relacion entre clases  en el cual varias clases hijas heredan de una sola clase padre.
+
+las clases hijas son tipos de la clase padre.
+la herencia es una relacion herarquica.
+java solo admite herencia simple.
+la herencia es trancitiva lo que le permite definir una jerarquia de herencia para un conjunto de tipos.
+
+en la herencia se dependera de los modificadores para poder observar si las variables se pueden usar o no.
+
+
+
+
 
 public class Clase05 {
 
@@ -15,6 +31,8 @@ public class Clase05 {
     }
     
 }
+
+
 
 (clase main)
 
