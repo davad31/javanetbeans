@@ -3,5 +3,18 @@
 
 Programacion orientada a objetos
 
+los metodos que son identico sin  el override se le llama sobre carga aun sabiendo que los metodos no se heredan si se puede sobrecargar.
+Las clases abstractas por lo general son clases padres.
 
+metodos abstractos:
+es cuando se necesita la monda pero no sabemos como entonces lo usamos como plantilla.
+
+abstract class Mamifero{
+abstract void comer ();
+void respirar(){
+  Syste,.out.println("Respira aire");
+  }
+}
+
+se dice que es abstracta por que eta incompleta y no se puede generar objetos porque es un molde incompleto.
 /*
