@@ -30,7 +30,7 @@ void respirar(){
 cualquier clase que contenga uno o mas metodos abstractos debe declararse como abstract.
 Una clase abstracta no puede ser instanciada. es decir no se pueden crear objetos.
 no es necesario declarar constrctores dentro de una clase bastracta.
-
+ A la hora de sobreescribir un metodo abstracto, esta deja de ser abtracto porque ya tiene cuerpo.
 
 
 /*
