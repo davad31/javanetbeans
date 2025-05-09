@@ -32,7 +32,7 @@ Una clase abstracta no puede ser instanciada. es decir no se pueden crear objeto
 no es necesario declarar constrctores dentro de una clase bastracta.
  A la hora de sobreescribir un metodo abstracto, esta deja de ser abtracto porque ya tiene cuerpo.
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Relacion de asociacion:
 se da entre dos clases y se marca con una flecha normal o como comunnmente se ve, como una flecha.
 la relacion de asociacion se le como "tiene".
@@ -71,5 +71,145 @@ ____________ ˅___________
 |cedula : string        |
 _________________________
 
+package Entidades;
+
+public class curso {
+    private String nombreCurso;
+    //relaciones de asociacion.
+    private Profesor profesor; // un curso tiene un profesor
+    private Estudiante[] estudiante; // un curso tiene muchos estudiantes
+    
+}
+
+
+
+EJERCICIO DE LA ASOCIACION:
+
+package Entidades;
+
+import java.util.Scanner;
+
+public class Profesor extends Persona {
+    private String tituloAcad;
+
+    public void ingresarDatos() {
+        Scanner scanner = new Scanner(System.in);
+        super.ingresarDatos();
+        System.out.println("Ingresar nivel de profesor: ");
+        this.tituloAcad = scanner.nextLine();
+    }
+
+    @Override
+    public void mostrarDatos() {
+        System.out.println("___________________Datos del estudiante___________________");
+        super.mostrarDatos();
+        System.out.println("Nivel: " + this.tituloAcad);
+    }
+
+}
+________________________________________________________________________________________________________________________________________________________________________________________
+package Entidades;
+
+import java.util.Scanner;
+
+public class Persona {
+
+    protected String nombre;
+    protected String cedula;
+
+    public void ingresarDatos(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println( " Cedula: ");
+        this.cedula = scanner.nextLine();
+
+        System.out.println("NOmbre: ");
+        this.nombre = scanner.nextLine();
+    }
+
+    public void mostrarDatos(){
+        System.out.println("Cedula: " + this.cedula);
+        System.out.printf("Nombre: " + this.nombre);
+    }
+}
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+Package Entidades;
+
+import java.util.Scanner;
+
+public class Estudiante extends Persona{
+
+    private int nivelEstudiante;
+    // construcores
+
+
+    @Override
+    public void ingresarDatos() {
+        Scanner scanner = new Scanner(System.in);
+        super.ingresarDatos();
+        System.out.println("Ingresar nivel de estudiante: ");
+        this.nivelEstudiante = scanner.nextInt();
+        scanner.nextLine();
+    }
+
+    @Override
+    public void mostrarDatos() {
+        System.out.println("___________________Datos del estudiante");
+        super.mostrarDatos();
+        System.out.println("Nivel: " + this.nivelEstudiante);
+    }
+
+}
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+package Entidades;
+
+import java.util.Scanner;
+
+public class curso {
+    private String nombreCurso;
+    //relaciones de asociacion.
+    private Profesor profesor; // un curso tiene un profesor
+    private Estudiante[] estudiante; // un curso tiene muchos estudiantes
+
+    //constructores
+
+    public curso(){}
+
+    public curso (String nombre, Profesor profesor1){
+        this.nombreCurso = nombre;
+        this.profesor = profesor1;
+    }
+    // getters y setters
+
+    public Profesor getProfesor(){
+        return this.profesor;
+    }
+
+    public Estudiante[] getEstudiante() {
+        return this.estudiante;
+    }
+    public void setProfesor(Profesor profesor1) {
+        this.profesor = profesor1;
+    }
+
+    public void setEstudiante(Estudiante[] estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    // metodos
+
+    public void ingresarDatos(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Nombre del curso: " );
+        this.nombreCurso = scanner.nextLine();
+        Profesor profesor = new Profesor();
+        profesor.ingresarDatos();
+        this.profesor = profesor;
+
+    }
+
+}
 
 */
+
