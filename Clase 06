@@ -5,12 +5,13 @@ Programacion orientada a objetos
 
 los metodos que son identico sin  el override se le llama sobre carga aun sabiendo que los metodos no se heredan si se puede sobrecargar.
 Las clases abstractas por lo general son clases padres.
+se dice que es abstracta por que eta incompleta y no se puede generar objetos porque es un molde incompleto.
 
 metodos abstractos:
 es cuando se necesita la monda pero no sabemos como entonces lo usamos como plantilla.
 
 abstract class Mamifero{
-abstract void comer ();
+abstract void comer ();        ---------> Esta es solo una plantilla.
 void respirar(){
   Syste,.out.println("Respira aire");
   }
@@ -19,11 +20,17 @@ void respirar(){
 
     public abstract class Empleado {
         //atributos
-        protected String nombre;
+        protected String nombre;            ------------> esto de aca no jala porque es abstracto y no se puede instanciar
         protected int idEmpleado;
         protected float salario;
 }
-esto de aca no jala porque es abstracto y no se puede instanciar
 
-se dice que es abstracta por que eta incompleta y no se puede generar objetos porque es un molde incompleto.
+
+
+cualquier clase que contenga uno o mas metodos abstractos debe declararse como abstract.
+Una clase abstracta no puede ser instanciada. es decir no se pueden crear objetos.
+no es necesario declarar constrctores dentro de una clase bastracta.
+
+
+
 /*
