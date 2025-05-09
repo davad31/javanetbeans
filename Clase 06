@@ -33,4 +33,43 @@ no es necesario declarar constrctores dentro de una clase bastracta.
  A la hora de sobreescribir un metodo abstracto, esta deja de ser abtracto porque ya tiene cuerpo.
 
 
+Relacion de asociacion:
+se da entre dos clases y se marca con una flecha normal o como comunnmente se ve, como una flecha.
+la relacion de asociacion se le como "tiene".
+
+
+_____________________
+|        VENTA       |  
+|____________________|
+|producto: producto[]|
+|vendedor:           |
+|total: double       |
+______________________
+            |
+____________|____________
+|        Cliente        |
+|______________________ |
+|nombre : String        |
+|cedula : string        |
+|tiene_tarjeta: boolean |
+_________________________
+            | 
+            |
+____________|____________
+|        vendedor       |
+|______________________ |
+|nombre : String        |
+|cedula : string        |
+|codigoTrabajador:string|
+_________________________
+             |
+             |
+____________ ˅___________
+|        PERSONA        |
+|______________________ |
+|nombre : String        |
+|cedula : string        |
+_________________________
+
+
 */
