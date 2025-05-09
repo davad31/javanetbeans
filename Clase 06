@@ -215,5 +215,29 @@ public class curso {
   }
 }
 
+
+______________________________________________________________________________________________
+public class main{
+public static void Main(String[] args){
+    Profesor prof = new Profesor();
+    prof.ingresarDatos();
+    Estudiante est = new Estudiante();
+    est.ingresarDatos();
+
+    Estudiante est2 = new Estudiante();
+    est2.ingresarDatos();
+
+  Curso curso = new Curso();
+    curso.ingresarDatos();
+    curso.setProfesor(prof);
+    Estudiante[] arrEst = new estudiante [2];
+
+    arrEst [0] = est;
+    arrEst [1] = est2;
+
+    curso.setEstudiante(arrEst);
+    curso.mostrarDatos();
+  }
+}
 */
 
