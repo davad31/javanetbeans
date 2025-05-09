@@ -16,5 +16,14 @@ void respirar(){
   }
 }
 
+
+    public abstract class Empleado {
+        //atributos
+        protected String nombre;
+        protected int idEmpleado;
+        protected float salario;
+}
+esto de aca no jala porque es abstracto y no se puede instanciar
+
 se dice que es abstracta por que eta incompleta y no se puede generar objetos porque es un molde incompleto.
 /*
