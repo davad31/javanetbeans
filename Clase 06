@@ -203,12 +203,16 @@ public class curso {
 
         System.out.println("Nombre del curso: " );
         this.nombreCurso = scanner.nextLine();
-        Profesor profesor = new Profesor();
-        profesor.ingresarDatos();
-        this.profesor = profesor;
-
     }
 
+    public void mostrarDatos(){
+    System.out.println("Mostrar datos");
+    System.out.println("Nombre: " + this.nombreCuro);
+    System.out.println("profesor");
+    this.profesor.mostrarDatos();
+    for(int i=0; i< this.estudiante.length; i++){
+    this.estudiantes[i].mostrarDatos();
+  }
 }
 
 */
