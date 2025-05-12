@@ -1,0 +1,54 @@
+Colecciones 
+al igual que los arreglos tambien son estructura que nos permite guardar conjunto de cosas pero tienen sus diferencias.
+existen 6 colecciones en java con sus ventajas y desventajas.
+
+* permite guardar solo objetos pero los arreglos no.
+* crecen dinamicamente segun los elementos que le coloquemos.
+* tambien proveer ordenamiento agregan y borran el ultimo .
+* existen diferentes tipos de colecciones en los lenguaje de programacion.
+
+en java existe tres tipos de colecciones:
+  a) el arraylis de Listt.
+ b) el MAP treeMap Hashmap.
+c) en conjuntos hasheet treeset.
+
+El arraylist es una especie de arreglo dinamico basado en una implementacion donde los elementos pueden ser accedidos directamente por los metodos get y set.
+para agregar o borrar un elemento es necesario mover los elementos que esten a la derecha.
+Eso es lo malo de la arraylist.
+
+
+para poder usar arraylist
+ se debe importar de la siguiente manera
+import java.util.Arraylist
+
+Arraylist<Estudiante> lista  = new Arraylist<>;
+lista.add(estudiante); -> sirve para agregar a la coleccion
+lista.add(estudiante1); 
+lista.add( index0, element: esstudiante1); 
+La coleccion Arraylist permite elementos duplicados
+
+para ver el tamaño del array se usa size ejemplo:
+sout ("el tamaño del arreglo: " + lista.size());  .
+
+________________________________________________________________________________________________________________________________________________________________________________________
+Estudiante PrimerEstudiante = lista.get(0); // obtenemos el objeto dentro de la lista
+        System.out.println("Primer estudiante ");
+        PrimerEstudiante.mostrarDatos();
+_____________________________________________________________________________________________________________________________________________________________________________________________
+
+        Estudiante PrimerEstudiante = lista.get(0); // obtenemos el objeto dentro de la lista
+        System.out.println("Primer estudiante ");
+        PrimerEstudiante.mostrarDatos();
+        System.out.println("Recorrer el Arraylist");
+        for (int i=0; i< lista.size(); i++){
+            Estudiante e = lista.get(i);
+            e.mostrarDatos();
+        }
+________________________________________________________________________________________________________________________________________________________________________________________________   
+                   
+        // eliminar un elemento de la coleccion.
+        System.out.println("Eliminar el elemento de la coleccion");
+         Estudiante e = lista.remove(0);
+        System.out.println("estudiante eliminado");
+        e.mostrarDatos();
+_____________________________________________________________________________________________________________________________________________________________________________________________________
