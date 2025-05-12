@@ -1,3 +1,5 @@
+12/04/2025
+
 Colecciones 
 al igual que los arreglos tambien son estructura que nos permite guardar conjunto de cosas pero tienen sus diferencias.
 existen 6 colecciones en java con sus ventajas y desventajas.
@@ -52,3 +54,6 @@ ________________________________________________________________________________
         System.out.println("estudiante eliminado");
         e.mostrarDatos();
 _____________________________________________________________________________________________________________________________________________________________________________________________________
+
+esto va a estar en el examen.
+
