@@ -57,3 +57,127 @@ ________________________________________________________________________________
 
 esto va a estar en el examen.
 
+
+______________________________________________________________________________________________________________________________________________________________________________________________________
+clase administrador:
+package administradores;
+
+import entidades.Profesor;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class AdministradoraProfesor {
+
+    public static ArrayList<Profesor> lista = new ArrayList<>();
+
+    public void agregar(Profesor p) {
+        lista.add(p);
+    }
+
+    public boolean eliminarPorCedula(String cedula) {
+        boolean resultado;
+        Profesor p = buscarPorCedula(cedula);
+        if (p != null) {
+            lista.remove(p);
+            resultado = true;
+        }
+        resultado = false;
+        return resultado;
+    }
+
+    public Profesor buscarPorCedula(String cedula) {
+        Profesor profEncontrado = null;
+        for (Profesor p : lista) {
+            if (p.getCedula().equalsIgnoreCase(cedula)) {
+                profEncontrado = p;
+            }
+        }
+        return profEncontrado;
+    }
+
+    public ArrayList<Profesor> buscarPorNombre(String nombre) {
+        ArrayList<Profesor> encontrados = new ArrayList<>();
+        for (Profesor p : lista) {
+            if (p.getNombre() != null && p.getNombre().toLowerCase().contains(nombre.toLowerCase())) {
+                encontrados.add(p);
+            }
+        }
+        return encontrados;
+    }
+
+    public void mostrarLista() {
+        for (Profesor p : lista) {
+            p.mostrarDatos();
+        }
+    }
+
+    public void menuProfesores() {
+        Scanner sc = new Scanner(System.in);
+        int opcion = 0;
+        do {
+            System.out.println("\n****** Menú de Profesores ******");
+            System.out.println("1. Registrar profesor");
+            System.out.println("2. Mostrar lista");
+            System.out.println("3. Buscar por cédula");
+            System.out.println("4. Buscar por nombre");
+            System.out.println("5. Eliminar por cédula");
+            System.out.println("0. Salir");
+            System.out.print("Opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcion) {
+                case 1: //ingresar o registrar
+                    Profesor nuevo = new Profesor();
+                    nuevo.ingresarDatos();
+                    agregar(nuevo);
+                    break;
+                case 2: //mostrar lista de profesores
+                    mostrarLista();
+                    break;
+                case 3://buscar profesor por cedula
+                    System.out.print("Cédula: ");
+                    String ced = sc.nextLine();
+                    Profesor p = buscarPorCedula(ced);
+                    if (p != null) {
+                        p.mostrarDatos();
+                    } else {
+                        System.out.println("No encontrado.");
+                    }
+                    break;
+                case 4: //buscar por nombre
+                    System.out.print("Nombre de prof a buscar: ");
+                    String nom = sc.nextLine();
+                    ArrayList<Profesor> resultados = buscarPorNombre(nom);
+                    if (!resultados.isEmpty()) {
+                        for (Profesor prof : resultados) {
+                            prof.mostrarDatos();
+                        }
+                    } else {
+                        System.out.println("No se encontraron coincidencias.");
+                    }
+                    break;
+                case 5:
+                    System.out.print("Cédula para eliminar: ");
+                    ced = sc.nextLine();
+                    if (eliminarPorCedula(ced)) {
+                        System.out.println("Eliminado.");
+                    } else {
+                        System.out.println("No encontrado.");
+                    }
+                    break;
+                case 0:
+                    System.out.println("Adiós.");
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+            }
+        } while (opcion != 0);
+    }
+
+Tanto la clase administrador de profesor va en los mismo que en la clase de ed administrdor dee studinte.
+
+
+
+}
+}
