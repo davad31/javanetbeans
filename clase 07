@@ -177,7 +177,43 @@ public class AdministradoraProfesor {
 
 Tanto la clase administrador de profesor va en los mismo que en la clase de ed administrdor dee studinte.
 
-
+}
 
 }
+
+se esta clase es la main pr las superclase y ls subclases
+
+import entidades.Estudiante;
+import java.util.ArrayList;
+
+public class PruebaColeccion {
+    public static void main(String[] args) {
+        Estudiante e1 = new Estudiante();
+        e1.ingresarDatos();
+        
+        Estudiante e2 = new Estudiante();
+        e2.ingresarDatos();
+        
+        ArrayList<Estudiante> lista = new ArrayList();
+        // guardo o agrego dentro de un ArrayList
+        lista.add(e1);
+        lista.add(e2);
+        lista.add(0, e2); //arraylist permite elementos duplicados
+        
+        System.out.println("Tamano de la coleccion: " + lista.size());
+        Estudiante primerEst = lista.get(0);
+        System.out.println("Primer estudiante: ");
+        primerEst.mostrarDatos();
+        System.out.println("Recorrer el ArrayList");
+        for(int i=0; i<lista.size(); i++){
+            //lista.get(i).mostrarDatos();
+            Estudiante e = lista.get(i);
+            e.mostrarDatos();
+        }
+        System.out.println("Eliminar elemento");
+        Estudiante e = lista.remove(0);//remove eliminar elementos por indice
+        System.out.println("Estudiante eliminado");
+        e.mostrarDatos();
+    }
+    
 }
