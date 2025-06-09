@@ -1,1 +1,287 @@
+package interfaces;
 
+    public interface IMantenible {
+        //constantes
+        public static final String PANTALLA = "LCD";
+        int CANTIDAD = 1; //de forma implicita ya tiene el public static final
+
+        //metodos abstractos
+        void ingresarDatos();
+        public abstract void mostrarDatos(); //los metodos van a tener el public abstract (implicito)
+
+        //metdodos por defecto
+        default void realizarOperacion(){
+                System.out.println("Realizando operacion...");
+        }  
+    }
+____________________________________________________________________________________________________________________________________________________________________
+package interfaces;
+
+public interface IFuncionable {
+    void encender();
+    void apagar();
+}
+________________________________________________________________________________________________________________________________________________________________________
+package entidades;
+
+import java.util.Scanner;
+
+public class Smarthphone extends Dispositivo {
+    private String tipoConectividad;
+
+    public Smarthphone() {
+    }
+
+    public Smarthphone(String marca, String modelo, double precio) {
+        super(marca, modelo, precio);
+    }
+
+    public String getTipoConectividad() {
+        return tipoConectividad;
+    }
+
+    public void setTipoConectividad(String tipoConectividad) {
+        this.tipoConectividad = tipoConectividad;
+    }
+    
+    //SOBREESCRITURA DE METODOS
+    
+    /*@Override
+    public void mostrarDatos(){
+        super.mostrarDatos();
+        System.out.println("Tipo de conectividad: " + this.tipoConectividad);
+    }
+    
+    @Override
+    public void ingresarDatos(){
+        super.ingresarDatos();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Ingrese el tipo de conectividad: ");
+        this.tipoConectividad = scan.nextLine();
+    }*/
+    
+    @Override
+    public void encender(){
+        System.out.println("Esta encendido.");
+    }
+    
+    @Override
+    public void apagar(){
+        System.out.println("Esta apagado.");
+    }
+    
+}
+___________________________________________________________________________________________________________________________________________________________________________________
+package entidades;
+
+import interfaces.IMantenible;
+import java.util.Scanner;
+
+public class Repuesto implements IMantenible{
+    private String nombre;
+    private double precio;
+    public String codigo;
+    
+    public Repuesto(){}
+    
+     public Repuesto(String n, double p, String c){
+         this.nombre = n;
+         this.precio= p;
+         this.codigo =c;
+     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    
+    @Override
+    public void ingresarDatos(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el nombre: ");
+        this.nombre = sc.nextLine();
+        System.out.println("Ingrese el precio: ");  
+        this.precio = sc.nextDouble();
+        System.out.println("Ingrese el codigo: ");
+        this.codigo = sc.nextLine();
+    }
+    @Override
+    public void mostrarDatos(){
+        System.out.println("Nombre: " + this.nombre);
+        System.out.println("Precio: " + this.precio);
+        System.out.println("Codigo: " + this.codigo);
+     }
+     
+     
+}
+____________________________________________________________________________________________________________________________________________________________________________________________________________________
+package entidades;
+
+import interfaces.IFuncionable;
+import interfaces.IMantenible;
+import java.util.Scanner;
+
+// Clase base o padre
+public abstract class Dispositivo implements IMantenible, IFuncionable {
+    //atributos (variables globales)
+    private String marca;
+    private String modelo;
+    private double precio;
+
+    // Constructor por defecto
+    public Dispositivo() {
+        this.marca = "LG";
+    }
+
+    // Constructor parametrizado
+    public Dispositivo(String marca, String modelo, double precio) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.precio = precio;
+    }
+
+    // Getters y Setters
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marcaNueva) {
+        this.marca = marcaNueva;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    // Metodo para mostrar datos
+    @Override
+    public void mostrarDatos() {
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Precio: $" + precio);
+    }
+
+    // Metodo para ingresar datos desde el teclado
+    @Override
+    public void ingresarDatos() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese la marca (maximo 15 caracteres): ");
+        this.marca = scanner.nextLine();
+        System.out.println("Ingrese el modelo(maximo 10 caracteres): ");
+        this.modelo = scanner.nextLine();
+        System.out.println("Ingrese el precio (hasta 1000): ");
+        this.precio = scanner.nextDouble();
+    }
+
+    //sobreescritura de metodo
+    @Override
+    public String toString() { //es heredado de object
+        return "Marca: " + this.marca + " Modelo: " + this.modelo
+                + " precio: " + this.precio;
+    }
+
+}
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+package entidades;
+import java.util.Scanner;
+
+public class Computadora  extends Dispositivo{
+    //atributos
+    private int memoria_RAM;
+    
+    public Computadora(){
+        // lllamar al constructor por defecto de la clase padre
+        super();
+    }
+    
+    public Computadora(int memo){
+        this.memoria_RAM = memo;  
+    }
+    
+    public Computadora(String mar, String mod, double pre, int memo){
+       // llamar al constructor parametrizado de la clase padre
+       super(mar, mod, pre);
+       this.memoria_RAM = memo;    
+    }
+    
+    //getters y setters
+    public int getMemoriaRAM(){
+        return this.memoria_RAM;
+    }
+    public void setMemoriaRAM(int nuevoMemoria){
+        this.memoria_RAM = nuevoMemoria;
+    }
+    
+    //SOBREESCRITURA DE METODOS
+    @Override
+    public String toString(){
+     return super.toString() + "Memoria ram " + this.memoria_RAM; 
+    }
+    
+    @Override
+    public void mostrarDatos(){
+        super.mostrarDatos();//muestra marca, modelo, precio
+        System.out.println("Memoria ram " + this.memoria_RAM);
+    }
+    
+    @Override
+    public void ingresarDatos(){
+        super.ingresarDatos();//ingresa marca, modelo, precio
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Ingrese memoria ram");
+        this.memoria_RAM = scan.nextInt();
+    }
+    
+    @Override
+    public void encender(){
+        System.out.println("Esta encendido.");
+    }
+    
+    @Override
+    public void apagar(){
+        System.out.println("Esta apagado.");
+    }
+    
+}
+______________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+polimorfismo es el significado de que una clase al cual la declaramos tiene el poder de cambiar su valor siempre y cuando se cumplan ciertos requisitos:
+que tenga relacion (aqui se aplica como barbie = tu puedes ser lo que quieras ser).
+
+saber si es de arriba o de abajo.
+
+se grafica en un diagrama UML con lineas entrecortadas y tambien con << interface>>.
+
+se representa con la palabra implementa.
