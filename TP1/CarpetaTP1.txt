@@ -242,3 +242,223 @@ public static void Main(String[] args){
 }
 */
 ______________________________________________________________________________________________________________________________________________________________
+12/04/2025
+
+Colecciones 
+al igual que los arreglos tambien son estructura que nos permite guardar conjunto de cosas pero tienen sus diferencias.
+existen 6 colecciones en java con sus ventajas y desventajas.
+
+* permite guardar solo objetos pero los arreglos no.
+* crecen dinamicamente segun los elementos que le coloquemos.
+* tambien proveer ordenamiento agregan y borran el ultimo .
+* existen diferentes tipos de colecciones en los lenguaje de programacion.
+
+en java existe tres tipos de colecciones:
+  a) el arraylis de Listt.
+ b) el MAP treeMap Hashmap.
+c) en conjuntos hasheet treeset.
+
+El arraylist es una especie de arreglo dinamico basado en una implementacion donde los elementos pueden ser accedidos directamente por los metodos get y set.
+para agregar o borrar un elemento es necesario mover los elementos que esten a la derecha.
+Eso es lo malo de la arraylist.
+
+
+para poder usar arraylist
+ se debe importar de la siguiente manera
+import java.util.Arraylist
+
+Arraylist<Estudiante> lista  = new Arraylist<>;
+lista.add(estudiante); -> sirve para agregar a la coleccion
+lista.add(estudiante1); 
+lista.add( index0, element: esstudiante1); 
+La coleccion Arraylist permite elementos duplicados
+
+para ver el tamaño del array se usa size ejemplo:
+sout ("el tamaño del arreglo: " + lista.size());  .
+
+________________________________________________________________________________________________________________________________________________________________________________________
+Estudiante PrimerEstudiante = lista.get(0); // obtenemos el objeto dentro de la lista
+        System.out.println("Primer estudiante ");
+        PrimerEstudiante.mostrarDatos();
+_____________________________________________________________________________________________________________________________________________________________________________________________
+
+        Estudiante PrimerEstudiante = lista.get(0); // obtenemos el objeto dentro de la lista
+        System.out.println("Primer estudiante ");
+        PrimerEstudiante.mostrarDatos();
+        System.out.println("Recorrer el Arraylist");
+        for (int i=0; i< lista.size(); i++){
+            Estudiante e = lista.get(i);
+            e.mostrarDatos();
+        }
+________________________________________________________________________________________________________________________________________________________________________________________________   
+                   
+        // eliminar un elemento de la coleccion.
+        System.out.println("Eliminar el elemento de la coleccion");
+         Estudiante e = lista.remove(0);
+        System.out.println("estudiante eliminado");
+        e.mostrarDatos();
+_____________________________________________________________________________________________________________________________________________________________________________________________________
+
+esto va a estar en el examen.
+
+
+______________________________________________________________________________________________________________________________________________________________________________________________________
+clase administrador:
+package administradores;
+
+import entidades.Profesor;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class AdministradoraProfesor {
+
+    public static ArrayList<Profesor> lista = new ArrayList<>();
+
+    public void agregar(Profesor p) {
+        lista.add(p);
+    }
+
+    public boolean eliminarPorCedula(String cedula) {
+        boolean resultado;
+        Profesor p = buscarPorCedula(cedula);
+        if (p != null) {
+            lista.remove(p);
+            resultado = true;
+        }
+        resultado = false;
+        return resultado;
+    }
+
+    public Profesor buscarPorCedula(String cedula) {
+        Profesor profEncontrado = null;
+        for (Profesor p : lista) {
+            if (p.getCedula().equalsIgnoreCase(cedula)) {
+                profEncontrado = p;
+            }
+        }
+        return profEncontrado;
+    }
+
+    public ArrayList<Profesor> buscarPorNombre(String nombre) {
+        ArrayList<Profesor> encontrados = new ArrayList<>();
+        for (Profesor p : lista) {
+            if (p.getNombre() != null && p.getNombre().toLowerCase().contains(nombre.toLowerCase())) {
+                encontrados.add(p);
+            }
+        }
+        return encontrados;
+    }
+
+    public void mostrarLista() {
+        for (Profesor p : lista) {
+            p.mostrarDatos();
+        }
+    }
+
+    public void menuProfesores() {
+        Scanner sc = new Scanner(System.in);
+        int opcion = 0;
+        do {
+            System.out.println("\n****** Menú de Profesores ******");
+            System.out.println("1. Registrar profesor");
+            System.out.println("2. Mostrar lista");
+            System.out.println("3. Buscar por cédula");
+            System.out.println("4. Buscar por nombre");
+            System.out.println("5. Eliminar por cédula");
+            System.out.println("0. Salir");
+            System.out.print("Opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcion) {
+                case 1: //ingresar o registrar
+                    Profesor nuevo = new Profesor();
+                    nuevo.ingresarDatos();
+                    agregar(nuevo);
+                    break;
+                case 2: //mostrar lista de profesores
+                    mostrarLista();
+                    break;
+                case 3://buscar profesor por cedula
+                    System.out.print("Cédula: ");
+                    String ced = sc.nextLine();
+                    Profesor p = buscarPorCedula(ced);
+                    if (p != null) {
+                        p.mostrarDatos();
+                    } else {
+                        System.out.println("No encontrado.");
+                    }
+                    break;
+                case 4: //buscar por nombre
+                    System.out.print("Nombre de prof a buscar: ");
+                    String nom = sc.nextLine();
+                    ArrayList<Profesor> resultados = buscarPorNombre(nom);
+                    if (!resultados.isEmpty()) {
+                        for (Profesor prof : resultados) {
+                            prof.mostrarDatos();
+                        }
+                    } else {
+                        System.out.println("No se encontraron coincidencias.");
+                    }
+                    break;
+                case 5:
+                    System.out.print("Cédula para eliminar: ");
+                    ced = sc.nextLine();
+                    if (eliminarPorCedula(ced)) {
+                        System.out.println("Eliminado.");
+                    } else {
+                        System.out.println("No encontrado.");
+                    }
+                    break;
+                case 0:
+                    System.out.println("Adiós.");
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+            }
+        } while (opcion != 0);
+    }
+
+Tanto la clase administrador de profesor va en los mismo que en la clase de ed administrdor dee studinte.
+
+}
+
+}
+
+se esta clase es la main pr las superclase y ls subclases
+
+import entidades.Estudiante;
+import java.util.ArrayList;
+
+public class PruebaColeccion {
+    public static void main(String[] args) {
+        Estudiante e1 = new Estudiante();
+        e1.ingresarDatos();
+        
+        Estudiante e2 = new Estudiante();
+        e2.ingresarDatos();
+        
+        ArrayList<Estudiante> lista = new ArrayList();
+        // guardo o agrego dentro de un ArrayList
+        lista.add(e1);
+        lista.add(e2);
+        lista.add(0, e2); //arraylist permite elementos duplicados
+        
+        System.out.println("Tamano de la coleccion: " + lista.size());
+        Estudiante primerEst = lista.get(0);
+        System.out.println("Primer estudiante: ");
+        primerEst.mostrarDatos();
+        System.out.println("Recorrer el ArrayList");
+        for(int i=0; i<lista.size(); i++){
+            //lista.get(i).mostrarDatos();
+            Estudiante e = lista.get(i);
+            e.mostrarDatos();
+        }
+        System.out.println("Eliminar elemento");
+        Estudiante e = lista.remove(0);//remove eliminar elementos por indice
+        System.out.println("Estudiante eliminado");
+        e.mostrarDatos();
+    }
+    
+}
+___________________________________________________________________________________________________________________________________________________________________________
