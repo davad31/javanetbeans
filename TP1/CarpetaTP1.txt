@@ -1,4 +1,477 @@
-Carpeta del primer parcial 
+
+Carpeta del primer parcial
+
+//*ENCAPSULAMIENTO:
+  Es el segundo pilar fundamental de POO(el primero es la abstraccion).
+  por el sentdo de proteger.
+ Es la propieda dque permte asegurar la informacion de un objeto esta oculta del mundo exterior.
+Acceder o modificar los atributos de una clase a travez de sus metodos.
+
+provee dos principales beneficios a los desarrolladores de software:
+
+modularidad: Indica que debewmos dividiar al programa en elementos bien identificables.
+Creando clases y organizandolas.
+Ocultamiento: es decir un objeto tiene una "interfas publica"(modificadores de acceso) que otros objetoos pueden utilizar para comunicarse con el.
+Esto permite la proteccion de los atributos de un acesso arbitarario por parte de otros programas y metodos.
+
+TU CONTROLAS COMO EL ACCESO A ESOS ATRIBUTOS SE DÁ.
+
+Public = publico +
+protegido = protected #
+definido = nada 
+privada = private -
+
+            la misma clase    otra clase del mismo paqete     Subclase      Otra clase de otro paquete
+public           X                            X                  X                     X
+protected        X                            X                  X
+defalt           X                            X
+private          X
+
+variable locales = parametros.
+Public permite el uso de la variable dentro de la misma clase siempre y cuando se declare a clase obviamente. Tambien podemos acceder a el en otro paquete y otra clase distinta.
+Private solo se permite usar siempre y cuando dentro de la clase mas no de otro paquete o clase externa.
+
+
+NOTA PARA USAR UN PAQUETE DE UNA CLASE A OTRA CLASE SE DEBE DE IMPORTAR.
+
+/*
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+el set aplica y el get (obtiene el  valor del atributo) lo del set(que seria cambiar el valor).
+
+package entidades;
+public class Producto {
+    //atributos
+    
+    public String nombre;
+     int cantidadDisponible; // por defecto.
+    private float precio;
+     
+    //constructores
+    // 1. constructor por defecto 
+   public Producto(){
+       this.cantidadDisponible = 5;       
+   }
+    //2. constructor parametrizado
+    public Producto(String nom, int cantidadDisponible){
+         this.nombre = nom;
+         this.cantidadDisponible= cantidadDisponible;
+    }
+       
+    public Producto( int cantidadDisponible, String nom, float precio){
+         this.nombre = nom;
+         this.cantidadDisponible= cantidadDisponible;
+         this.precio = precio;
+    }
+       
+       //metodos 
+    public void mostrarDatos(){
+        System.out.println("Datos de producto");
+        System.out.println("Nombre "+ this.nombre);
+        System.out.println("Cantidad Disponible " + this.cantidadDisponible);
+        System.out.println("Precio : "+ this.precio);
+    }
+       
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package encapsulamiento;
+import entidades.Producto;
+
+public class Encapsulamiento {
+    public static void main(String[] args) {
+        Producto produ2 = new Producto();
+        produ2.nombre = "chanchito feliz"; // esto obviamente ya no va afuncionar porque esta en privado tonces se usa el sett
+        produ2.setNombre("chanchito feliz");
+
+        //* produ.2cantidadDisponible = 24; no se puede acceder porque es por defecto
+        //y estamos en otro paquete//
+        // produ2.precio = 2,54f; // no se puede acceder porque esto es de otro paquete ademas esto esta en provado 
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package entidades;
+
+public class VentaMain {
+    
+    public static void main(String[] args) {
+        //crear un objeto
+        Producto produ = new Producto ();
+        produ.nombre = "Pepito el mas capito";
+        produ.cantidadDisponible = 30;     
+        //produ.precio = 1,54f; // no se puede acceder ´prqie es private
+        // solo se puede acceder dentro de la misma clase
+
+    }
+}
+______________________________________________________________________________________________________________________________________________________________________________
+public class Persona {
+  private String nombre;
+  int edad;
+  public String cedula;
+
+    //falta constructor.
+
+   void mostrarDatos(){
+        
+        System.err.println("Datos");
+    }
+  }
+____________________________________________________________________________________________________________________________}
+public class  Registro(){
+    
+    public static void Main (String args[]){
+        
+        persona p= new Persona ("Juan"); // esto no funciona debido a que no hay un constructor.
+        p.nombre = "Jose"; // esta privado en  la clase por eso no se puedde acceder.
+        p.edad = 29; // 
+        p.cedula= !"!092478910"; // si se puede usar debido a que esta en el mismo paquete.
+        p.mostrarDatos(); // si se puede usar porque esta en el mismo paquete( por default).
+
+    }
+}
+
+
+
+
+Ojo con los modificadores Por el publico y por el defecto.
+
+el codigo corregido seria el siguiente.
+
+public class Persona {
+    public String nombre;
+    int edad;
+    public String cedula;
+    
+     public void Persona(){
+         this.nombre = nombre;
+         this.cedula = cedula;
+     }
+    void mostrarDatos(){
+        
+        System.err.println("Datos");
+    }  
+}
+_____________________________________________________________________________________________________________________________
+
+
+public class registro {
+     public static void Main (String args[]){
+        
+        Persona p = new Persona ();
+        p.nombre = "Jose";
+        p.edad = 29;
+        p.cedula = "!092478910";
+        p.mostrarDatos();
+    }
+}
+
+________________________________________________________________________________________________________________________________________
+
+acontinuacion de la clase 04
+   //getter y setter = son un punto de acceso para los modificadores privados, en donde el get coge la informacion que el set espera.( el get prohibe su cambio y el sett permite el acceso de informacion nueva para el atributo que estece privado).
+    
+    public String getNombre(){
+        return this.nombre;
+    }
+    
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+    
+    public int getcantidadDisponible(){
+        return this.cantidadDisponible;
+    }
+    
+    public void setcantidadDisponible( int nuevaCantidad){
+       this.cantidadDisponible = nuevaCantidad; 
+    }
+    
+    public float precio(){
+        return this.precio;
+    }
+        
+    public void precio(float precio){
+        this.precio = precio;
+    }
+
+En la clase 04 para que no nos salga error en las lineas de codigo es usando el set
+ejemplo:
+produc.setnombre("ingresenombre");
+
+
+
+sigo con la acontinuacion de la clase 03 :
+agregando otro metodo.
+public void ingresarDatos(){
+        Scanner sc= new Scanner( System.in);
+        System.out.println("------------------------- Ingreso de producto------------------");
+        System.out.println("nombre");
+        this.nombre = sc.nextLine(); // para leer string
+        System.out.println("Cantidad disponible");
+        this.cantidadDisponible = sc.nextInt(); // para leer int
+        System.out.println("Precio");
+        this.precio = sc.nextFloat(); // para leer float
+    }
+
+
+      public void SiingresarDatos() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("------------------------- Ingreso de producto------------------");
+       
+         String nombreingresado = "";
+        boolean nombreValido = true;
+        do {
+            System.out.println("nombre");
+            nombreingresado = sc.nextLine();// para leer string
+            nombreValido = true;
+            
+            if (nombreingresado.length() < 5 ||  this.getNombre().length() >=30) {
+
+                System.out.print("Nombre del producto entre 5 y maximo 30");
+                nombreValido = false;
+            }
+          // revisar caracter por caracter.
+          for (int i =0; i<nombreingresado.length(); i++){
+            char c = nombreingresado.charAt(i); // para evaluar cada caracter.
+            if (!Character.isLetterOrDigit(c) && c != ' '){
+            nombreValido = false;
+            break; // salir del for.
+            }
+          }
+          //revisar con expresion regular
+          if(!nombreingresado.matches("^[ a-zA-z0-9]+$")){
+              System.out.println("solo letras, numeros y espacios");
+              nombreValido = false;
+          }
+              
+        } while (!nombreValido);
+        this.setNombre(nombreingresado);
+ 
+         // System.out.println("Cantidad disponible");
+        //this.cantidadDisponible = sc.nextInt(); // para leer int
+        
+        int cantidadIngresado = 0;
+        boolean cantidadValida = true;
+        
+        do{
+            System.out.println("cantidad disponible");
+            cantidadValida = true;
+            if(sc.hasNextInt()){ // pregunto si el usuario esta ingresando un numero
+                cantidadIngresado = sc.nextInt(); // para leer int
+                //verificar
+                
+                
+            }else{
+                System.out.println("Dato invalido, debe ser numero");
+                cantidadValida = false;
+                sc.next(); // limpiar la entrada de datos
+            }
+            if(cantidadIngresado<= 0  || cantidadIngresado >1000){
+                System.out.println("entre 1 y 1000");
+                cantidadValida = false;
+            }
+            
+            
+        }while(cantidadValida==false); 
+         this.setcantidadDisponible(cantidadIngresado);
+
+        System.out.println("Precio");
+        this.precio = sc.nextFloat(); // para leer float
+    }
+}
+para verificar un numero delei se necesita el numero al igual que al verificar un nombre o producto.
+
+//sobrecarga
+calclulos para ejemsiplificar
+public double calcularPrecioFinal(){
+    if(this.precio >100){
+      return this.precio - 5;
+}else{
+return this.precio;
+}
+}
+public double calcularPrecioFinal(double porcentajededescuento)}{
+return this.precio - (this.precio *porcentajededescuento);
+}
+
+public double  calcularPrecioFinal(double porc_descuento, double impuesto){
+double precioCondescto = this.precio(this.precio *porc_descuento);
+double valorImpuesto = this.precio * impuesto;
+return precioConDescuento + valorImpuesto;
+
+LA SOBRECARGA NO ES MAS QUE UN METODO REPETIDO VARIAS VECES SIEMRPE Y CUANDO  TENGA UN NUMERO MAYOR DE PARAMETRO CADA VEZ QUE QUIERAS USAR EL MISMO METODO.
+}
+*/
+__________________________________________________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________________________________________________________________________________
+/*  5 /05/2025
+
+Clase de herencia
+cuando una clase hija decide modificar un metodo heredado a eso se le denomina sobre escritura de metodos (esto se debe cumplir siempre y cuando la clase hija tenga los mismo nombres con los mismo parametros de la clase padre)
+ademas la clase hija puede tenar sus propios atributos y sus propios metodos.
+protected tiene un nivel de accesibilidad mayor ( en las clases hijas sin importar el paquete).
+La herencia simple significa que en la clase padre solo puede tener una clase padre.
+La herencia multiple es cuando la clase hija tiene mas de una clase padre. 
+
+para demostrar herencia en un diagrama de clase UMl es con una flecha cesde la clase hija hasta la clase padre con un triangulo sin pintar.
+la herencia es un  una relacion entre clases  en el cual varias clases hijas heredan de una sola clase padre.
+
+las clases hijas son tipos de la clase padre.
+la herencia es una relacion herarquica.
+java solo admite herencia simple.
+la herencia es trancitiva lo que le permite definir una jerarquia de herencia para un conjunto de tipos.
+
+en la herencia se dependera de los modificadores para poder observar si las variables se pueden usar o no.
+
+
+
+
+
+public class Clase05 {
+
+  
+    public static void main(String[] args) {
+        Empleado m = new Empleado("juan", 111, 1200);
+        String res = m.toString();
+        System.out.println("REs de toString " + res);
+    }
+    
+}
+
+
+
+(clase main)
+
+
+
+clase Empleado 
+import java.util.Scanner;
+
+public class Empleado {
+    //atributos
+    protected String nombre;
+    protected int idEmpleado;
+    protected float salario;
+    
+   //constructores
+    public Empleado() {
+    }
+
+    public Empleado(String nombre, int idEmpleado, float salario) {
+        this.nombre = nombre;
+        this.idEmpleado = idEmpleado;
+        this.salario = salario;
+        
+    }
+    //metodos getters y setters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    public float getSalario() {
+        return salario;
+    }
+
+    public void setSalario(float salario) {
+        this.salario = salario;
+    }
+    //metodos
+    public void ingresarDatos() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese ID del empleado: ");
+        idEmpleado = scanner.nextInt();
+        scanner.nextLine(); //limpiar buffer de entrada de datos
+        System.out.print("Ingrese nombre: ");
+        nombre = scanner.nextLine();
+    }
+
+    public void mostrarDatos() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("ID: " + idEmpleado);
+        System.out.println("Salario: $" + this.salario);
+    }
+
+    // sobrecarga de metodos
+    public double calcularSalario() {
+        return this.salario;
+    }
+
+    public double calcularSalario(float bono) {
+        this.salario = this.salario + bono;
+        return this.salario;
+    }
+
+    public double calcularSalario(float multa, float bono) {
+        this.salario = this.salario + bono - multa;
+        return this.salario;
+    }
+
+     
+}
+
+para usar la clase padre dentro de una clase hija se tiene que usar la palabra extends junto a la clase
+ejemplo:
+public class EmpleadoTemporal extends Empleado {
+
+
+
+package entidades;
+public class EmpleadoTemporal extends Empleado {
+   //atributos propios
+    // aHORA TIENE 5 atributos
+    private  int diasTrabajados;
+    private float salarioPorDia;
+    
+    // constructores
+    public EmpleadoTemporal(){
+        
+    }
+    public EmpleadoTemporal(String nom){
+        this.nombre = nom;
+    }
+    public EmpleadoTemporal(int id, String nom, float sal, int diasTrab, float salDia){
+        super(nom , id, salDia);
+        
+        this.diasTrabajados = diasTrab;
+        this.salarioPorDia = salDia;
+          
+    }
+            
+    
+}
+package entidades;
+public class EmpleadoTemporal extends Empleado {
+   //atributos propios
+    // aHORA TIENE 5 atributos
+    private  int diasTrabajados;
+    private float salarioPorDia;
+    
+    // constructores
+    
+    
+    
+}
+
+*/
+_____________________________________________________________________________________________________________________________________________________________________________
 /*
 9 /05/2025
 
@@ -462,310 +935,3 @@ public class PruebaColeccion {
     
 }
 ___________________________________________________________________________________________________________________________________________________________________________
-//*ENCAPSULAMIENTO:
-  Es el segundo pilar fundamental de POO(el primero es la abstraccion).
-  por el sentdo de proteger.
- Es la propieda dque permte asegurar la informacion de un objeto esta oculta del mundo exterior.
-Acceder o modificar los atributos de una clase a travez de sus metodos.
-
-provee dos principales beneficios a los desarrolladores de software:
-
-modularidad: Indica que debewmos dividiar al programa en elementos bien identificables.
-Creando clases y organizandolas.
-Ocultamiento: es decir un objeto tiene una "interfas publica"(modificadores de acceso) que otros objetoos pueden utilizar para comunicarse con el.
-Esto permite la proteccion de los atributos de un acesso arbitarario por parte de otros programas y metodos.
-
-TU CONTROLAS COMO EL ACCESO A ESOS ATRIBUTOS SE DÁ.
-
-Public = publico +
-protegido = protected #
-definido = nada 
-privada = private -
-
-            la misma clase    otra clase del mismo paqete     Subclase      Otra clase de otro paquete
-public           X                            X                  X                     X
-protected        X                            X                  X
-defalt           X                            X
-private          X
-
-variable locales = parametros.
-Public permite el uso de la variable dentro de la misma clase siempre y cuando se declare a clase obviamente. Tambien podemos acceder a el en otro paquete y otra clase distinta.
-Private solo se permite usar siempre y cuando dentro de la clase mas no de otro paquete o clase externa.
-
-
-NOTA PARA USAR UN PAQUETE DE UNA CLASE A OTRA CLASE SE DEBE DE IMPORTAR.
-
-/*
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-el set aplica y el get (obtiene el  valor del atributo) lo del set(que seria cambiar el valor).
-
-package entidades;
-public class Producto {
-    //atributos
-    
-    public String nombre;
-     int cantidadDisponible; // por defecto.
-    private float precio;
-     
-    //constructores
-    // 1. constructor por defecto 
-   public Producto(){
-       this.cantidadDisponible = 5;       
-   }
-    //2. constructor parametrizado
-    public Producto(String nom, int cantidadDisponible){
-         this.nombre = nom;
-         this.cantidadDisponible= cantidadDisponible;
-    }
-       
-    public Producto( int cantidadDisponible, String nom, float precio){
-         this.nombre = nom;
-         this.cantidadDisponible= cantidadDisponible;
-         this.precio = precio;
-    }
-       
-       //metodos 
-    public void mostrarDatos(){
-        System.out.println("Datos de producto");
-        System.out.println("Nombre "+ this.nombre);
-        System.out.println("Cantidad Disponible " + this.cantidadDisponible);
-        System.out.println("Precio : "+ this.precio);
-    }
-       
-}
-
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-package encapsulamiento;
-import entidades.Producto;
-
-public class Encapsulamiento {
-    public static void main(String[] args) {
-        Producto produ2 = new Producto();
-        produ2.nombre = "chanchito feliz"; // esto obviamente ya no va afuncionar porque esta en privado tonces se usa el sett
-        produ2.setNombre("chanchito feliz");
-
-        //* produ.2cantidadDisponible = 24; no se puede acceder porque es por defecto
-        //y estamos en otro paquete//
-        // produ2.precio = 2,54f; // no se puede acceder porque esto es de otro paquete ademas esto esta en provado 
-    }
-}
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-package entidades;
-
-public class VentaMain {
-    
-    public static void main(String[] args) {
-        //crear un objeto
-        Producto produ = new Producto ();
-        produ.nombre = "Pepito el mas capito";
-        produ.cantidadDisponible = 30;     
-        //produ.precio = 1,54f; // no se puede acceder ´prqie es private
-        // solo se puede acceder dentro de la misma clase
-
-    }
-}
-______________________________________________________________________________________________________________________________________________________________________________
-public class Persona {
-  private String nombre;
-  int edad;
-  public String cedula;
-
-    //falta constructor.
-
-   void mostrarDatos(){
-        
-        System.err.println("Datos");
-    }
-  }
-____________________________________________________________________________________________________________________________}
-public class  Registro(){
-    
-    public static void Main (String args[]){
-        
-        persona p= new Persona ("Juan"); // esto no funciona debido a que no hay un constructor.
-        p.nombre = "Jose"; // esta privado en  la clase por eso no se puedde acceder.
-        p.edad = 29; // 
-        p.cedula= !"!092478910"; // si se puede usar debido a que esta en el mismo paquete.
-        p.mostrarDatos(); // si se puede usar porque esta en el mismo paquete( por default).
-
-    }
-}
-
-
-
-
-Ojo con los modificadores Por el publico y por el defecto.
-
-el codigo corregido seria el siguiente.
-
-public class Persona {
-    public String nombre;
-    int edad;
-    public String cedula;
-    
-     public void Persona(){
-         this.nombre = nombre;
-         this.cedula = cedula;
-     }
-    void mostrarDatos(){
-        
-        System.err.println("Datos");
-    }  
-}
-_____________________________________________________________________________________________________________________________
-
-
-public class registro {
-     public static void Main (String args[]){
-        
-        Persona p = new Persona ();
-        p.nombre = "Jose";
-        p.edad = 29;
-        p.cedula = "!092478910";
-        p.mostrarDatos();
-    }
-}
-
-________________________________________________________________________________________________________________________________________
-
-acontinuacion de la clase 04
-   //getter y setter = son un punto de acceso para los modificadores privados, en donde el get coge la informacion que el set espera.( el get prohibe su cambio y el sett permite el acceso de informacion nueva para el atributo que estece privado).
-    
-    public String getNombre(){
-        return this.nombre;
-    }
-    
-    public void setNombre(String nombre){
-        this.nombre = nombre;
-    }
-    
-    public int getcantidadDisponible(){
-        return this.cantidadDisponible;
-    }
-    
-    public void setcantidadDisponible( int nuevaCantidad){
-       this.cantidadDisponible = nuevaCantidad; 
-    }
-    
-    public float precio(){
-        return this.precio;
-    }
-        
-    public void precio(float precio){
-        this.precio = precio;
-    }
-
-En la clase 04 para que no nos salga error en las lineas de codigo es usando el set
-ejemplo:
-produc.setnombre("ingresenombre");
-
-
-
-sigo con la acontinuacion de la clase 03 :
-agregando otro metodo.
-public void ingresarDatos(){
-        Scanner sc= new Scanner( System.in);
-        System.out.println("------------------------- Ingreso de producto------------------");
-        System.out.println("nombre");
-        this.nombre = sc.nextLine(); // para leer string
-        System.out.println("Cantidad disponible");
-        this.cantidadDisponible = sc.nextInt(); // para leer int
-        System.out.println("Precio");
-        this.precio = sc.nextFloat(); // para leer float
-    }
-
-
-      public void SiingresarDatos() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("------------------------- Ingreso de producto------------------");
-       
-         String nombreingresado = "";
-        boolean nombreValido = true;
-        do {
-            System.out.println("nombre");
-            nombreingresado = sc.nextLine();// para leer string
-            nombreValido = true;
-            
-            if (nombreingresado.length() < 5 ||  this.getNombre().length() >=30) {
-
-                System.out.print("Nombre del producto entre 5 y maximo 30");
-                nombreValido = false;
-            }
-          // revisar caracter por caracter.
-          for (int i =0; i<nombreingresado.length(); i++){
-            char c = nombreingresado.charAt(i); // para evaluar cada caracter.
-            if (!Character.isLetterOrDigit(c) && c != ' '){
-            nombreValido = false;
-            break; // salir del for.
-            }
-          }
-          //revisar con expresion regular
-          if(!nombreingresado.matches("^[ a-zA-z0-9]+$")){
-              System.out.println("solo letras, numeros y espacios");
-              nombreValido = false;
-          }
-              
-        } while (!nombreValido);
-        this.setNombre(nombreingresado);
- 
-         // System.out.println("Cantidad disponible");
-        //this.cantidadDisponible = sc.nextInt(); // para leer int
-        
-        int cantidadIngresado = 0;
-        boolean cantidadValida = true;
-        
-        do{
-            System.out.println("cantidad disponible");
-            cantidadValida = true;
-            if(sc.hasNextInt()){ // pregunto si el usuario esta ingresando un numero
-                cantidadIngresado = sc.nextInt(); // para leer int
-                //verificar
-                
-                
-            }else{
-                System.out.println("Dato invalido, debe ser numero");
-                cantidadValida = false;
-                sc.next(); // limpiar la entrada de datos
-            }
-            if(cantidadIngresado<= 0  || cantidadIngresado >1000){
-                System.out.println("entre 1 y 1000");
-                cantidadValida = false;
-            }
-            
-            
-        }while(cantidadValida==false); 
-         this.setcantidadDisponible(cantidadIngresado);
-
-        System.out.println("Precio");
-        this.precio = sc.nextFloat(); // para leer float
-    }
-}
-para verificar un numero delei se necesita el numero al igual que al verificar un nombre o producto.
-
-//sobrecarga
-calclulos para ejemsiplificar
-public double calcularPrecioFinal(){
-    if(this.precio >100){
-      return this.precio - 5;
-}else{
-return this.precio;
-}
-}
-public double calcularPrecioFinal(double porcentajededescuento)}{
-return this.precio - (this.precio *porcentajededescuento);
-}
-
-public double  calcularPrecioFinal(double porc_descuento, double impuesto){
-double precioCondescto = this.precio(this.precio *porc_descuento);
-double valorImpuesto = this.precio * impuesto;
-return precioConDescuento + valorImpuesto;
-
-LA SOBRECARGA NO ES MAS QUE UN METODO REPETIDO VARIAS VECES SIEMRPE Y CUANDO  TENGA UN NUMERO MAYOR DE PARAMETRO CADA VEZ QUE QUIERAS USAR EL MISMO METODO.
-}
-*/
-__________________________________________________________________________________________________________________________________________________________________
