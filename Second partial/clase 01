@@ -285,3 +285,4 @@ saber si es de arriba o de abajo.
 se grafica en un diagrama UML con lineas entrecortadas y tambien con << interface>>.
 
 se representa con la palabra implementa.
+para llamar a un metodo dentro del main es mas facil declrarlo con public static.
