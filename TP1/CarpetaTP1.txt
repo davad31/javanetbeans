@@ -1,1 +1,244 @@
 Carpeta del primer parcial 
+/*
+9 /05/2025
+
+Programacion orientada a objetos
+
+los metodos que son identico sin  el override se le llama sobre carga aun sabiendo que los metodos no se heredan si se puede sobrecargar.
+Las clases abstractas por lo general son clases padres.
+se dice que es abstracta por que eta incompleta y no se puede generar objetos porque es un molde incompleto.
+
+metodos abstractos:
+es cuando se necesita la monda pero no sabemos como entonces lo usamos como plantilla.
+
+abstract class Mamifero{
+abstract void comer ();        ---------> Esta es solo una plantilla.
+void respirar(){
+  Syste,.out.println("Respira aire");
+  }
+}
+
+
+    public abstract class Empleado {
+        //atributos
+        protected String nombre;            ------------> esto de aca no jala porque es abstracto y no se puede instanciar
+        protected int idEmpleado;
+        protected float salario;
+}
+
+
+
+cualquier clase que contenga uno o mas metodos abstractos debe declararse como abstract.
+Una clase abstracta no puede ser instanciada. es decir no se pueden crear objetos.
+no es necesario declarar constrctores dentro de una clase bastracta.
+ A la hora de sobreescribir un metodo abstracto, esta deja de ser abtracto porque ya tiene cuerpo.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Relacion de asociacion:
+se da entre dos clases y se marca con una flecha normal o como comunnmente se ve, como una flecha.
+la relacion de asociacion se le como "tiene".
+
+
+_____________________
+|        VENTA       |  
+|____________________|
+|producto: producto[]|
+|vendedor:           |
+|total: double       |
+______________________
+            |    "tiene"
+____________|____________
+|        Cliente        |
+|______________________ |
+|nombre : String        |
+|cedula : string        |
+|tiene_tarjeta: boolean |
+_________________________
+            | "tiene"
+            |
+____________|____________
+|        vendedor       |
+|______________________ |
+|nombre : String        |
+|cedula : string        |
+|codigoTrabajador:string|
+_________________________
+             |  "tiene"
+             |
+____________ ˅___________
+|        PERSONA        |
+|______________________ |
+|nombre : String        |
+|cedula : string        |
+_________________________
+
+package Entidades;
+
+public class curso {
+    private String nombreCurso;
+    //relaciones de asociacion.
+    private Profesor profesor; // un curso tiene un profesor
+    private Estudiante[] estudiante; // un curso tiene muchos estudiantes
+    
+}
+
+
+
+EJERCICIO DE LA ASOCIACION:
+
+package Entidades;
+
+import java.util.Scanner;
+
+public class Profesor extends Persona {
+    private String tituloAcad;
+
+    public void ingresarDatos() {
+        Scanner scanner = new Scanner(System.in);
+        super.ingresarDatos();
+        System.out.println("Ingresar nivel de profesor: ");
+        this.tituloAcad = scanner.nextLine();
+    }
+
+    @Override
+    public void mostrarDatos() {
+        System.out.println("___________________Datos del estudiante___________________");
+        super.mostrarDatos();
+        System.out.println("Nivel: " + this.tituloAcad);
+    }
+
+}
+________________________________________________________________________________________________________________________________________________________________________________________
+package Entidades;
+
+import java.util.Scanner;
+
+public class Persona {
+
+    protected String nombre;
+    protected String cedula;
+
+    public void ingresarDatos(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println( " Cedula: ");
+        this.cedula = scanner.nextLine();
+
+        System.out.println("NOmbre: ");
+        this.nombre = scanner.nextLine();
+    }
+
+    public void mostrarDatos(){
+        System.out.println("Cedula: " + this.cedula);
+        System.out.printf("Nombre: " + this.nombre);
+    }
+}
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+Package Entidades;
+
+import java.util.Scanner;
+
+public class Estudiante extends Persona{
+
+    private int nivelEstudiante;
+    // construcores
+
+
+    @Override
+    public void ingresarDatos() {
+        Scanner scanner = new Scanner(System.in);
+        super.ingresarDatos();
+        System.out.println("Ingresar nivel de estudiante: ");
+        this.nivelEstudiante = scanner.nextInt();
+        scanner.nextLine();
+    }
+
+    @Override
+    public void mostrarDatos() {
+        System.out.println("___________________Datos del estudiante");
+        super.mostrarDatos();
+        System.out.println("Nivel: " + this.nivelEstudiante);
+    }
+
+}
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+package Entidades;
+
+import java.util.Scanner;
+
+public class curso {
+    private String nombreCurso;
+    //relaciones de asociacion.
+    private Profesor profesor; // un curso tiene un profesor
+    private Estudiante[] estudiante; // un curso tiene muchos estudiantes
+
+    //constructores
+
+    public curso(){}
+
+    public curso (String nombre, Profesor profesor1){
+        this.nombreCurso = nombre;
+        this.profesor = profesor1;
+    }
+    // getters y setters
+
+    public Profesor getProfesor(){
+        return this.profesor;
+    }
+
+    public Estudiante[] getEstudiante() {
+        return this.estudiante;
+    }
+    public void setProfesor(Profesor profesor1) {
+        this.profesor = profesor1;
+    }
+
+    public void setEstudiante(Estudiante[] estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    // metodos
+
+    public void ingresarDatos(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Nombre del curso: " );
+        this.nombreCurso = scanner.nextLine();
+    }
+
+    public void mostrarDatos(){
+    System.out.println("Mostrar datos");
+    System.out.println("Nombre: " + this.nombreCuro);
+    System.out.println("profesor");
+    this.profesor.mostrarDatos();
+    for(int i=0; i< this.estudiante.length; i++){
+    this.estudiantes[i].mostrarDatos();
+  }
+}
+
+
+______________________________________________________________________________________________
+public class main{
+public static void Main(String[] args){
+    Profesor prof = new Profesor();
+    prof.ingresarDatos();
+    Estudiante est = new Estudiante();
+    est.ingresarDatos();
+
+    Estudiante est2 = new Estudiante();
+    est2.ingresarDatos();
+
+  Curso curso = new Curso();
+    curso.ingresarDatos();
+    curso.setProfesor(prof);
+    Estudiante[] arrEst = new estudiante [2];
+
+    arrEst [0] = est;
+    arrEst [1] = est2;
+
+    curso.setEstudiante(arrEst);
+    curso.mostrarDatos();
+  }
+}
+*/
+______________________________________________________________________________________________________________________________________________________________
