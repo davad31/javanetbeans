@@ -48,12 +48,18 @@ la diferencia  entre hasmap y treemap es como esta implementado.
 Hasmap tabla para ver si las claves son unicas donde los elementos podran estar ordenados por la clave.
 Treemap a travez de un sortedmap donde se uiliza un arbol binario ordenado. al manternerlos ordenados por clave se hace mas eficionente.
 ____________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
 package practicapolimorfismo;
 
 import entidades.Computadora;
 import entidades.Dispositivo;
 import entidades.Smarthphone;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
 
 public class pruebacoleeciones {
 
@@ -72,12 +78,78 @@ public class pruebacoleeciones {
         listaDeDispositivo.add(smarthphone);
 
         System.out.println("Tamaño de la arraylist" + listaDeDispositivo.size());
+
+        for (Dispositivo dis : listaDeDispositivo) {
+            dis.mostrarDatos(); // enlace dinamico de metodos.
+        }
+
+        ArrayList<Dispositivo> listaDeDispositivo1 = new ArrayList();
+        listaDeDispositivo.add(computadora);
+        listaDeDispositivo.add(smarthphone);
+        listaDeDispositivo.add(smarthphone);
+        listaDeDispositivo1.add(1, computadora);
+
+        System.out.println("Tamaño de la arraylist" + listaDeDispositivo1.size());
+
+        for (Dispositivo dis : listaDeDispositivo1) {
+            dis.mostrarDatos(); // enlace dinamico de metodos.
+        }
+
+        // hardset ( no permite elementos duplicados)
+        HashSet<Dispositivo> listaD = new HashSet();
+        listaD.add(computadora);
+        listaD.add(smarthphone);
+        listaD.add(computadora);
+
+        System.out.println("el tamaño del hashmap" + listaD.size());
+        for (Dispositivo disp : listaD) {
+            disp.mostrarDatos(); // enlace dinamico de metodos.
+            if (disp instanceof Computadora) {
+                disp.encender(); // beneficio de polimorfismo guardarr una coleccion con muchos aja
+                // con instanceof se verifica q ue si aja existe la viana que se requiera entonces se va a prender
+                //disp.setMemoriaRam(23); // esto de aca no se puede
+
+                ((Computadora) disp).setMemoriaRAM(24); // aca si ý porque le hice un dowcasting asi bien insano.
+
+            }
+        }
+
+        // hasmap
+        HashMap<String, Dispositivo> mapaDispositivo = new HashMap();
+        mapaDispositivo.put("001", computadora);
+        mapaDispositivo.put("002", computadora);
+        mapaDispositivo.put("003", computadora);
+        mapaDispositivo.put("001", computadora);
+        mapaDispositivo.put(computadora.getModelo(), computadora);
+        System.out.println("tamaño del hashmap" + mapaDispositivo.size());
+
+        for (String clave : mapaDispositivo.keySet()) { // para recorrer un mapa
+            Dispositivo dis = mapaDispositivo.get(clave);
+            dis.mostrarDatos();
+        }
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("codigo a buscar");
+        String codigo = sc.nextLine();
+        Dispositivo dis2 = mapaDispositivo.get(codigo);
+        if (dis2 != null) {
+            System.out.println("Dispositivo encontrado");
+            dis2.mostrarDatos();
+        }
         
-        for(Dispositivo dis : listaDeDispositivo){
-        dis.mostrarDatos(); // enlace dinamico de metodos.
+        // mapaDispositivo.keySet(); // todas las claves
+        // mapaDispositivo.entrySet(); // todas las entradas
+        
+        for(Map.Entry<String, Dispositivo> entrada: mapaDispositivo.entrySet()){
+            
+            String clave = entrada.getKey();
+            Dispositivo disp = entrada.getValue();
+            System.out.println("clave: " + clave + " valor: "  + disp.getMarca());
+            
         }
     }
 }
+
 
 ________________________________________________________________________________________________________________________________________________________________________________________
 
