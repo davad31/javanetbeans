@@ -28,5 +28,32 @@ los maps siempre siuen una clave con su valor
 dentro de un mapa no puede existir una clave repetida
 
 object.put(objeto clave, objeto valor).
+          ejemplo= object.put( Gye, guayaquil). 
+
+other example = ojbect.put(UIO, quito)                                      }
+                 ojbect.put(UIO, latacunga).                                }------- esto no puede existire ya que tiene claves repetidas.
+                                                                            }
+
+
+
+
+para remover se tiene qe segui la siguiente sintaxis:
+
+object.remove(objeto clave); object get(object key);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
