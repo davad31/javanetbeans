@@ -5,3 +5,11 @@ collection( contenedores)
 * list
 * map
 * interface
+
+INTERFACE SET
+
+corresponde a la definicion mateamtica de un conjunto 
+no permite elementos duplicados( el metodo add no permite agreagr elementos que ya se encuentran en el conjunto)
+
+
+
