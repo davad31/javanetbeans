@@ -47,12 +47,39 @@ la diferencia  entre hasmap y treemap es como esta implementado.
 
 Hasmap tabla para ver si las claves son unicas donde los elementos podran estar ordenados por la clave.
 Treemap a travez de un sortedmap donde se uiliza un arbol binario ordenado. al manternerlos ordenados por clave se hace mas eficionente.
+____________________________________________________________________________________________________________________________________________________________________________________________________________
+package practicapolimorfismo;
 
+import entidades.Computadora;
+import entidades.Dispositivo;
+import entidades.Smarthphone;
+import java.util.ArrayList;
 
+public class pruebacoleeciones {
 
+    public static void main(String[] args) {
 
+        Computadora computadora = new Computadora("tlc", "HP", 45784, 3434);
+        Computadora computadora1 = new Computadora("martha", "HP Zere", 4578, 347878);
 
+        Smarthphone smarthphone = new Smarthphone("xiaomi", "boate", 435);
+        Smarthphone smarthphone1 = new Smarthphone("ssammssummg", "boate8908", 325);
 
+        //collecciones
+        ArrayList<Dispositivo> listaDeDispositivo = new ArrayList();
+        listaDeDispositivo.add(computadora);
+        listaDeDispositivo.add(smarthphone);
+        listaDeDispositivo.add(smarthphone);
+
+        System.out.println("Tamaño de la arraylist" + listaDeDispositivo.size());
+        
+        for(Dispositivo dis : listaDeDispositivo){
+        dis.mostrarDatos(); // enlace dinamico de metodos.
+        }
+    }
+}
+
+________________________________________________________________________________________________________________________________________________________________________________________
 
 
 
