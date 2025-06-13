@@ -27,6 +27,8 @@ INTERFACE MAP
 los maps siempre siuen una clave con su valor
 dentro de un mapa no puede existir una clave repetida
 
+entry map o entrada de mapa es el ciruclito.
+
 object.put(objeto clave, objeto valor).
           ejemplo= object.put( Gye, guayaquil). 
 
@@ -41,6 +43,10 @@ para remover se tiene qe segui la siguiente sintaxis:
 
 object.remove(objeto clave); object get(object key);
 
+la diferencia  entre hasmap y treemap es como esta implementado.
+
+Hasmap tabla para ver si las claves son unicas donde los elementos podran estar ordenados por la clave.
+Treemap a travez de un sortedmap donde se uiliza un arbol binario ordenado. al manternerlos ordenados por clave se hace mas eficionente.
 
 
 
