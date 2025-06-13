@@ -6,10 +6,27 @@ collection( contenedores)
 * map
 * interface
 
-INTERFACE SET
 
+INTERFACE SET
 corresponde a la definicion mateamtica de un conjunto 
 no permite elementos duplicados( el metodo add no permite agreagr elementos que ya se encuentran en el conjunto)
+se importa como java.util.set
 
+* tiene como tamaño de referecia 2.
+
+las clases hashset y treeset en la interface set.
+
+implementa una tablita de codigos jash que va verificando si no existen elementos duplicados
+la informacion contenida de una clase es usada para deerminar valores unicos llamados sus has code
+
+treeset
+implementa la interfaz usando una estructura de arbol.Esto garantiza el ordenamiento de los elementos.
+
+
+INTERFACE MAP
+los maps siempre siuen una clave con su valor
+dentro de un mapa no puede existir una clave repetida
+
+object.put(objeto clave, objeto valor).
 
 
