@@ -1,0 +1,35 @@
+existen varios paquetes disponibles
+AWT
+swing
+javaFX
+
+cuando uno crea un objeto 
+
+Swing por general vienen primero con la palabra (J) ejemplo j.button.
+
+la interfaz con AWT son pesados osea consumen una buena cantidad de memoria
+  la Libreria Swing los nombres de los componentes de swing comienzan con j para distinguirolos de los correspondientes en AWT, son livianos
+
+
+JLabel: una pieza de texto no editable
+JButton: Un boton en el que se puede dar clik
+JTextField: Un simple linea de texto
+JTextArea: Una caja de texto con multiples lineas
+JRadioButton: botones de opcion
+
+COMPONENTES CONTENEDORES --------> contienen a otros Ej ( JFrame.) ( JPanel), (JScrollPanel).
+
+
+COMPONENTES SIMPLES -------------> (JLabel), (JTextField), (Jbottun), (JRadioButton etc).
+
+
+UTILITARIOS --------------------> (layout manager), graphics, color, font.
+
+
+interactuan con los usuarios a traves de los eventos.
+
+
+
+
+
+
