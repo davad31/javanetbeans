@@ -20,7 +20,7 @@ JRadioButton: botones de opcion
 COMPONENTES CONTENEDORES --------> contienen a otros Ej ( JFrame.) ( JPanel), (JScrollPanel).
 
 
-COMPONENTES SIMPLES -------------> (JLabel), (JTextField), (Jbottun), (JRadioButton etc).
+COMPONENTES SIMPLES(controles)  -------------> (JLabel), (JTextField), (Jbottun), (JRadioButton etc).
 
 
 UTILITARIOS --------------------> (layout manager), graphics, color, font.
