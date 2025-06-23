@@ -21,3 +21,11 @@ cada que se producer un evento, se crea un objeto que representa a ese evento.
 
 
 
+de user presses button hasta component button b1
+de component button b1 hasta component generales event object
+de component generales event object repit
+objeto listener o escuchar ese boton se le avisa o indica quien es su escucha de eventos pa que pa cuando suceda un evento el reacione.
+
+
+
+
