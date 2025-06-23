@@ -44,5 +44,7 @@ dependeran tanto de los tipos de eventos y listener -> (son interfaces)
 | ChnageEvent  | ChangeListener    | Changer Adapter  |
 |-----------------------------------------------------|
 
+los adaptadores son clases que ya implementa la monda
+con el adaptador podemos especificar .
 
 
