@@ -49,3 +49,5 @@ con el adaptador podemos especificar .
 
 un componente puede reaccionar a diferentes tipos de eventos
 
+con  dispose se sierra una ventana
+la ventana principal si deberia tener el exit on close
