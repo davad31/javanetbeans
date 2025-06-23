@@ -27,5 +27,22 @@ de component generales event object repit
 objeto listener o escuchar ese boton se le avisa o indica quien es su escucha de eventos pa que pa cuando suceda un evento el reacione.
 
 
+dependeran tanto de los tipos de eventos y listener -> (son interfaces)
+
+
+| ----------------------------------------------------|
+| EVENT        |  LISTENER         | ADAPTER          |
+| ----------------------------------------------------|
+| action event | actionlistener    |                  |
+-------------------------------------------------------
+| mouseEvent   | mouseListener     | Mause Adapter    |
+-------------------------------------------------------
+| keyEvent     | k}KeyListener     | Key Adapter      |
+------------------------------------------------------
+| ItemEvent    | ItemListener      | Item Adapter     |
+-------------------------------------------------------
+| ChnageEvent  | ChangeListener    | Changer Adapter  |
+|-----------------------------------------------------|
+
 
 
