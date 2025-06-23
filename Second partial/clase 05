@@ -1,0 +1,23 @@
+layout managers 
+un layout manager no es mas que un delegadoque se encarga de organizar los componentes.
+algunos principales:
+borderlayout capas de tener cinco areas para colocar los componentes
+flowlayout: de izquierda a derecha y de arriba a abajo
+girdlayout componentes se colocan en un grid columnas y son de las mas comunes.
+
+boxlayout crea stack de hoirizontal o vertical como un cajon
+
+cardlayout la clase cardlayout organiza cada componente en el contenedor como una tarjeta.
+
+
+complejos :
+gridbaglayout.
+springlayout.
+grouplayout.
+Jmewnu
+JmenuItem
+ un evento es una accion iniciada por el usuario un ejemplo como presionar un boton, cambiar un texto, etc
+cada que se producer un evento, se crea un objeto que representa a ese evento.
+
+
+
