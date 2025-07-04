@@ -1,0 +1,33 @@
+4/07/2025
+
+flujo binario 8 bites
+
+dentro de ellos estan los file input stream  } lectura
+beffered inputstream
+
+file output stream     }
+nuffered output stream }   ecritura
+
+desevializar { object imput stream
+ serializar {objectoutput stream
+
+buffered reader sirve para escribir ya que son almacenamientos
+
+el buffer agarra el grupo de caracteres, si se llena el buffer va a agarrar y los va a enviar{ ejemplo : Jesús ( con el buffer es una bolsita que practicamente rellena de caracteres ( en este caso nonbre Jesús y lo  envia)
+
+los buffer mejoran yel rendimiento del disco a la hora de leer.
+
+la serializacion es convertir algo a una secuencia de bytes.
+
+y la desearlizacion trata de reconstuir el objeto a partir de esa secuencia de bytes.
+
+object -> stream of bytes -> DB
+DB stream of bytes object
+
+cuando leemos es input y cuando escribimos es output
+
+la clase debe ser serealizada.
+
+                                                                                                                     
+                                                                                                                     
+                                                                                                                     
