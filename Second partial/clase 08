@@ -1,0 +1,14 @@
+se obtiene a travez de levento co evt.getKeychar();  // obtiene la tecla presionada
+
+si es numero es digit para la busqueda de cedula
+con .consume(); // no acepta lo que se esta ingresando 
+se obtiene la longitu don el nombre que le diste a ese txtfield  asi
+txtcodigo.getText().length()<5 y con el .consume(); se evalua si se dibuja o no en este caso no se dibuja la tecla.
+
+con letra y numeros isletterordigit
+ && c!= '' && c!= '#'------> para permitir siempre se tiene que usar el evt.consume();
+
+
+
+
+  
