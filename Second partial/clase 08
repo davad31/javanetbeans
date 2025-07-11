@@ -9,6 +9,17 @@ con letra y numeros isletterordigit
  && c!= '' && c!= '#'------> para permitir siempre se tiene que usar el evt.consume();
 
 
+hilos significa multitarea es lo que nos permie ejecutar varioos procesos a la vez.
+
+el hilo significa theards como en la plataforma theards extecion de instagram
+con theards parmite que el sistema operativo se puedan ejecutar los miniprocesos de los programaas
+
+los hilos de java se ejecutan en l Jvm
+
+el main theards es el hilo principal de java.
+
+
+
 
 
   
